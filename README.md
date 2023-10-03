@@ -89,6 +89,14 @@ python ~/git_repos/PGTB/gfp_cell_matrix.py \
 ### Analysis 
 
   1. Open Jupyter Notebook
-       - Notebook 1: Cell type analysis
-       - Notebook 2: GFPBC mapping analysis
+       - Navigate to ondemand.htc.crc.pitt.edu
+       - Interactive apps > Jupyter > launch
+       - retina_explant_qc.ipynb
+       - retina_explant_analysis.ipynb
+       - retina_explant_plots.ipynb
+
+Helpful single cell resources / best practices:
+- https://www.sc-best-practices.org
+- Best practices for single-cell across modalities, Theis et al, _Nature_, 2023 
+    - https://www.nature.com/articles/s41576-023-00586-w
 
