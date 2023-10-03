@@ -2,7 +2,7 @@
 Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
 
 ## scAAVengr Pipeline
-![Alt text](relative%20img/scaavengr_pipeline.png?raw=true "Title")
+![alt text](https://github.com/ByrneLab/PGTB/blob/main/img/scaavengr_pipeline.png?raw=true)
 
 
 ## Getting started
@@ -26,17 +26,65 @@ Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
         - mkdir ${HOME}/git_repos
         - cd ${HOME}/git_repos
         - git clone <repo>
+  5. Set up project direcotry
+     - sample metadata file
+     - directory structure
+         - analysis
+             - salmon_quant
+             - 10x
+         - OUT_ERR
+           
+
+## Pre-run checks
+
+1. Check/download reference genome
+2. Check/create GFP reference file
+   - Submit salmon index to create indexed reference file
+3. Create conda env
+   - conda env create -f /bgfs/lbyrne/PGTB/resources/scaavengr_env.yml
 
 ## Run scAAVengr
 
-### Pre-processing pipeline (Part 1)
+### Pre-processing pipeline 
 
-  1. Create project directory and sample metadata file
-  2. Create GFP reference file
-        - Submit salmon index to create indexed reference file
-  3. Submit Salmon gfp quantification
-  4.  Submit CellRanger
 
+#### scRNAseq
+
+Submit Cellranger
+```
+sbatch -o `pwd`/OUT_ERR/cellranger_%j.out ~/git_repos/PGTB/submit_cellranger.sh \
+    -p `pwd` -d /bgfs/lbyrne/PGTB/data/ \
+    -n LB1_BYR819A1 \
+    -r /bgfs/lbyrne/PGTB/resources/refdata-gex-GRCh38-2020-A/
+```
+
+#### GFP quantification
+
+Submit salmon GFP quantification
+```
+sbatch -o `pwd`/OUT_ERR/salmon_gfp_quant_%j.out  ~/git_repos/PGTB/salmon_gfp.bash \
+    -p `pwd` -d /bgfs/lbyrne/PGTB/data/ \
+    -n LB1_BYR819A1_S1 \
+    -r /bgfs/lbyrne/PGTB/resources/gfp_barcodes_salmon_index/
+```
+
+Submit seqkit extract GFP barcodes
+```
+sbatch -o `pwd`/OUT_ERR/seqkit_locate_%j.out ~/git_repos/PGTB/seqkit_extract.sh \
+    -p `pwd` -d /bgfs/lbyrne/PGTB/data/ \
+    -n LB1_BYR819A1_S1 \
+    -b /bgfs/lbyrne/PGTB/resources/gfp_barcodes_25bp.fa
+```
+
+Submit in-house script to create GFP x cell matrix
+```
+conda activate scaavengr_env
+python ~/git_repos/PGTB/gfp_cell_matrix.py \
+    --bc_uniq `pwd`/salmon_quant/LB1_BYR819A1_S1_10x_bc_umi.txt \
+    --gfpbc `pwd`/salmon_quant/LB1_BYR819A1_S1_R2_001.subgfp.seqkitlocate.txt \
+    --out `pwd`/salmon_quant/LB1_BYR819A1_S1_gfp_cell_matrix.csv \
+    --outbin `pwd`/salmon_quant/LB1_BYR819A1_S1_gfp_cell_matrix.binary.csv
+```
 
 ### Analysis (Part 2)
 
