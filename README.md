@@ -10,7 +10,8 @@ Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
 ### Access HTC CRC
 
   1. If you're not on Pitt WifI:
-        - Download PulseSecure VPN
+        - Download PulseSecure or GlobalProtect VPN
+        - https://www.technology.pitt.edu/services/pittnet-vpn-globalprotect 
         - Setup vpn/2FA
         - Connect to Pitt
   2. Login to Pitt CRC
@@ -22,10 +23,11 @@ Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
         - cp /bgfs/lbyrne/Anaconda3-2020.11-Linux-x86_64.sh ${$HOME}/resources/
         - cd ${$HOME}/resources/
         - bash Anaconda3-2020.11-Linux-x86_64.sh
+        - conda env create -f /bgfs/lbyrne/PGTB/resources/scaavengr_env.yml
   4. Clone scAAVengr repository
         - mkdir ${HOME}/git_repos
         - cd ${HOME}/git_repos
-        - git clone <repo>
+        - git clone [<repo>](https://github.com/ByrneLab/PGTB.git)
   5. Set up project direcotry
      - sample metadata file
      - directory structure
