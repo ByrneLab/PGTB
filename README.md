@@ -1,6 +1,9 @@
 # PGTB
 Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
 
+## scAAVengr Pipeline
+![Alt text](relative%20img/scaavengr_pipeline.png?raw=true "Title")
+
 
 ## Getting started
 
