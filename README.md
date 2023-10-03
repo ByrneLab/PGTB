@@ -27,7 +27,7 @@ Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
   4. Clone scAAVengr repository
         - mkdir ${HOME}/git_repos
         - cd ${HOME}/git_repos
-        - git clone [<repo>](https://github.com/ByrneLab/PGTB.git)
+        - git clone https://github.com/ByrneLab/PGTB.git
   5. Set up project direcotry
      - sample metadata file
      - directory structure
