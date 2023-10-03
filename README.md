@@ -62,7 +62,7 @@ sbatch -o `pwd`/OUT_ERR/cellranger_%j.out ~/git_repos/PGTB/submit_cellranger.sh 
 
 Submit salmon GFP quantification
 ```
-sbatch -o `pwd`/OUT_ERR/salmon_gfp_quant_%j.out  ~/git_repos/PGTB/salmon_gfp.bash \
+sbatch -o `pwd`/OUT_ERR/salmon_gfp_quant_%j.out  ~/git_repos/PGTB/salmon_gfp.sh \
     -p `pwd` -d /bgfs/lbyrne/PGTB/data/ \
     -n LB1_BYR819A1_S1 \
     -r /bgfs/lbyrne/PGTB/resources/gfp_barcodes_salmon_index/
@@ -86,7 +86,7 @@ python ~/git_repos/PGTB/gfp_cell_matrix.py \
     --outbin `pwd`/salmon_quant/LB1_BYR819A1_S1_gfp_cell_matrix.binary.csv
 ```
 
-### Analysis (Part 2)
+### Analysis 
 
   1. Open Jupyter Notebook
        - Notebook 1: Cell type analysis
