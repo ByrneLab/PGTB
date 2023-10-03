@@ -93,7 +93,6 @@ python ~/git_repos/PGTB/gfp_cell_matrix.py \
        - Interactive apps > Jupyter > launch
        - retina_explant_qc.ipynb
        - retina_explant_analysis.ipynb
-       - retina_explant_plots.ipynb
 
 Helpful single cell resources / best practices:
 - https://www.sc-best-practices.org
