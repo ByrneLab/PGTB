@@ -33,7 +33,7 @@ Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
      - directory structure
          - analysis
              - salmon_quant
-             - 10x
+             - cellranger
          - OUT_ERR
            
 
@@ -55,7 +55,8 @@ Pittsburgh Gene Therapy Bootcamp 2023 (scAAVengr)
 Submit Cellranger
 ```
 sbatch -o `pwd`/OUT_ERR/cellranger_%j.out ~/git_repos/PGTB/submit_cellranger.sh \
-    -p `pwd` -d /bgfs/lbyrne/PGTB/data/ \
+    -p `pwd` \
+    -d /bgfs/lbyrne/PGTB/data/ \
     -n LB1_BYR819A1 \
     -r /bgfs/lbyrne/PGTB/resources/refdata-gex-GRCh38-2020-A/
 ```
@@ -65,7 +66,8 @@ sbatch -o `pwd`/OUT_ERR/cellranger_%j.out ~/git_repos/PGTB/submit_cellranger.sh 
 Submit salmon GFP quantification
 ```
 sbatch -o `pwd`/OUT_ERR/salmon_gfp_quant_%j.out  ~/git_repos/PGTB/salmon_gfp.sh \
-    -p `pwd` -d /bgfs/lbyrne/PGTB/data/ \
+    -p `pwd` \
+    -d /bgfs/lbyrne/PGTB/data/ \
     -n LB1_BYR819A1_S1 \
     -r /bgfs/lbyrne/PGTB/resources/gfp_barcodes_salmon_index/
 ```
@@ -73,7 +75,8 @@ sbatch -o `pwd`/OUT_ERR/salmon_gfp_quant_%j.out  ~/git_repos/PGTB/salmon_gfp.sh 
 Submit seqkit extract GFP barcodes
 ```
 sbatch -o `pwd`/OUT_ERR/seqkit_locate_%j.out ~/git_repos/PGTB/seqkit_extract.sh \
-    -p `pwd` -d /bgfs/lbyrne/PGTB/data/ \
+    -p `pwd` \
+    -d /bgfs/lbyrne/PGTB/data/ \
     -n LB1_BYR819A1_S1 \
     -b /bgfs/lbyrne/PGTB/resources/gfp_barcodes_25bp.fa
 ```
