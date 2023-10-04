@@ -85,10 +85,10 @@ Submit in-house script to create GFP x cell matrix
 ```
 conda activate scaavengr_env
 python ~/git_repos/PGTB/gfp_cell_matrix.py \
-    --bc_uniq `pwd`/salmon_quant/LB1_BYR819A1_S1_10x_bc_umi.txt \
-    --gfpbc `pwd`/salmon_quant/LB1_BYR819A1_S1_R2_001.subgfp.seqkitlocate.txt \
-    --out `pwd`/salmon_quant/LB1_BYR819A1_S1_gfp_cell_matrix.csv \
-    --outbin `pwd`/salmon_quant/LB1_BYR819A1_S1_gfp_cell_matrix.binary.csv
+    --bc_uniq `pwd`/analysis/salmon_quant/LB1_BYR819A1_S1_10x_bc_umi.txt \
+    --gfpbc `pwd`/analysis/salmon_quant/LB1_BYR819A1_S1_R2_001.subgfp.seqkitlocate.txt \
+    --out `pwd`/analysis/salmon_quant/LB1_BYR819A1_S1_gfp_cell_matrix.csv \
+    --outbin `pwd`/analysis/salmon_quant/LB1_BYR819A1_S1_gfp_cell_matrix.binary.csv
 ```
 
 ### Analysis 
