@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=32
 #SBATCH -t 23:00:00
 
-usage() { echo -e "SCRIPT FOR SALMON GFP QUANTIFICATION\nUsage: sbatch -o <PROJ_DIR>/OUT_ERR/cellranger_%j.out $0 [-p </path/to/projectdir>] [-d </path/to/fastqdir>] [-n <sample_name>] [-r </path/to/cellranger_ref>]" 1>&2; exit 1; }
+usage() { echo -e "SCRIPT FOR CELLRANGER COUNT\nUsage: sbatch -o <PROJ_DIR>/OUT_ERR/cellranger_%j.out $0 [-p </path/to/projectdir>] [-d </path/to/fastqdir>] [-n <sample_name>] [-r </path/to/cellranger_ref>]" 1>&2; exit 1; }
 
 while getopts ":p:d:n:r:" arg; do
     case $arg in

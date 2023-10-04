@@ -58,7 +58,6 @@ all_cells_df_binary = pd.DataFrame(columns=viral_barcode_options)
 for cellbarcode in np.unique(np.array(list(c_10x_barcode.values()))):
     if cellbarcode in c_10xbarcode_2_virus.keys():
         curr_array = c_10xbarcode_2_virus[cellbarcode]
-        print(cellbarcode)
         curr_array_uniq, counts = np.unique(np.atleast_2d(curr_array), axis=0, return_counts=True)
         df = pd.DataFrame(curr_array_uniq,columns=['umi','virusbarcode'])
         df['count'] = counts
